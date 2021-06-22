@@ -8,7 +8,7 @@ output: github_document
 #IMPORTAR LA BASE DE DATOS 
 ```{r}
 library(readxl)
-datosd <- read_excel("C:/Users/Lenovo/Desktop/PARCIAL DE DISEÑO/datos1.xlsx")
+datosd <- read_excel("C:/Users/Lenovo/Desktop/PARCIAL DE DISEÑO/datosfinales.xlsx")
 ```
 
 #TIPIFICACION O ESTANDARIZACION DE VARIABLES 
@@ -30,6 +30,7 @@ P value es menor (<) a alfa: Se rechaza la hipotesis nula H0 (No normalidad)
 library(MVN)
 mvn(DatosDDE[2:7])
 ```
+Como el P value es mayor (>) a alfa, no se rechaza la hipotesis nula H0, por lo tanto, existe normalidad multivariante.
 
 
 

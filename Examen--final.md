@@ -6,7 +6,7 @@ NORIS YERITZA RAMIREZ CALDERON 1950198
 
 ``` r
 library(readxl)
-datosd <- read_excel("C:/Users/Lenovo/Desktop/PARCIAL DE DISEÑO/datos1.xlsx")
+datosd <- read_excel("C:/Users/Lenovo/Desktop/PARCIAL DE DISEÑO/datosfinales.xlsx")
 ```
 
 \#TIPIFICACION O ESTANDARIZACION DE VARIABLES La tipificacion permite
@@ -41,31 +41,34 @@ mvn(DatosDDE[2:7])
 
     ## $multivariateNormality
     ##              Test          Statistic            p value Result
-    ## 1 Mardia Skewness   77.6031448297931 0.0295915751502919     NO
-    ## 2 Mardia Kurtosis -0.477113186812492  0.633281525010301    YES
-    ## 3             MVN               <NA>               <NA>     NO
+    ## 1 Mardia Skewness   71.2960829636944 0.0817887961977343    YES
+    ## 2 Mardia Kurtosis -0.331180532676477  0.740508123968739    YES
+    ## 3             MVN               <NA>               <NA>    YES
     ## 
     ## $univariateNormality
-    ##           Test                Variable Statistic   p value Normality
-    ## 1 Shapiro-Wilk          Edad              0.9540  0.2162      YES   
-    ## 2 Shapiro-Wilk     Años de estudio        0.8818  0.0031      NO    
-    ## 3 Shapiro-Wilk   Ingresos mensuales       0.7612  <0.001      NO    
-    ## 4 Shapiro-Wilk    Horas de trabajo        0.7562  <0.001      NO    
-    ## 5 Shapiro-Wilk  Tiempo libre (horas)      0.8994  0.0081      NO    
-    ## 6 Shapiro-Wilk Horas en redes sociales    0.7910  <0.001      NO    
+    ##           Test                  Variable Statistic   p value Normality
+    ## 1 Shapiro-Wilk           Edad               0.9540  0.2162      YES   
+    ## 2 Shapiro-Wilk      Años de estudio         0.8818  0.0031      NO    
+    ## 3 Shapiro-Wilk     Horas de trabajo         0.7562  <0.001      NO    
+    ## 4 Shapiro-Wilk   Tiempo libre (horas)       0.8994  0.0081      NO    
+    ## 5 Shapiro-Wilk Horas que hacen ejercicio    0.7533  <0.001      NO    
+    ## 6 Shapiro-Wilk     Horas en familia         0.7892  <0.001      NO    
     ## 
     ## $Descriptives
-    ##                          n          Mean Std.Dev     Median        Min      Max
-    ## Edad                    30 -2.012279e-16       1 -0.2370471 -1.5704372 2.281579
-    ## Años de estudio         30  2.562530e-16       1 -0.2631218 -1.2498284 1.512950
-    ## Ingresos mensuales      30 -9.367507e-17       1 -0.6044713 -0.9143083 1.874225
-    ## Horas de trabajo        30  2.183299e-16       1  0.2483991 -2.2355922 0.869397
-    ## Tiempo libre (horas)    30 -9.439787e-17       1 -0.4219836 -1.3262342 2.290768
-    ## Horas en redes sociales 30 -1.481020e-17       1  0.2255597 -0.9022389 2.481157
-    ##                               25th      75th       Skew   Kurtosis
-    ## Edad                    -0.6815105 0.8000341  0.3945008 -0.8928403
-    ## Años de estudio         -0.8551457 0.7235849  0.3110506 -1.4027015
-    ## Ingresos mensuales      -0.6614813 0.6348766  0.9767262 -0.6816130
-    ## Horas de trabajo        -0.3725987 0.8693970 -1.2759523  0.5260578
-    ## Tiempo libre (horas)    -0.4219836 0.4822670  0.3770279 -0.8231338
-    ## Horas en redes sociales -0.9022389 0.2255597  0.9524952  0.1501908
+    ##                            n          Mean Std.Dev     Median       Min
+    ## Edad                      30 -2.012279e-16       1 -0.2370471 -1.570437
+    ## Años de estudio           30  2.562530e-16       1 -0.2631218 -1.249828
+    ## Horas de trabajo          30  2.183299e-16       1  0.2483991 -2.235592
+    ## Tiempo libre (horas)      30 -9.439787e-17       1 -0.4219836 -1.326234
+    ## Horas que hacen ejercicio 30  5.179595e-17       1  0.5962565 -1.029898
+    ## Horas en familia          30 -1.035928e-16       1  0.3010399 -1.204159
+    ##                                Max       25th      75th       Skew   Kurtosis
+    ## Edad                      2.281579 -0.6815105 0.8000341  0.3945008 -0.8928403
+    ## Años de estudio           1.512950 -0.8551457 0.7235849  0.3110506 -1.4027015
+    ## Horas de trabajo          0.869397 -0.3725987 0.8693970 -1.2759523  0.5260578
+    ## Tiempo libre (horas)      2.290768 -0.4219836 0.4822670  0.3770279 -0.8231338
+    ## Horas que hacen ejercicio 2.222410 -1.0298975 0.5962565  0.3643991 -0.8229562
+    ## Horas en familia          1.806239 -1.2041595 0.3010399  0.2182539 -0.8755990
+
+Como el P value es mayor (&gt;) a alfa, no se rechaza la hipotesis nula
+H0, por lo tanto, existe normalidad multivariante.
