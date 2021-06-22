@@ -2,15 +2,18 @@ ANALISIS FACTORIAL
 ================
 NORIS YERITZA RAMIREZ CALDERON 1950198
 
-\#EXAMEN FINAL DE DISEÑO DE EXPERIMENTOS
+\#IMPORTAR LA BASE DE DATOS
 
-Este es un trabajo en el cual visualiz
+``` r
+library(readxl)
+datosd <- read_excel("C:/Users/Lenovo/Desktop/PARCIAL DE DISEÑO/datosd.xlsx")
+```
 
-\#IMPORTAR LA BASE DE DATOS EN FORMATO EXCEL
+\#TIPIFICACION O ESTANDARIZACION DE VARIABLES La tificacion permite que
+todas las variables metricas gocen de una misma unidad de medida
+estadistica.
 
-\#\#Importe la base de datos en formato Excel por medio de “Import
-Dataset - From excel”
-
-\#TIPIFICACION O ESTANDARIZACION DE VARIABLES  
-La tipificacion permite que todas las variables metricas gocen de una
-misma unidad de medida estadistica.
+``` r
+DatosDDE <-datosd #Crear una nueva base de datos o data frame
+DatosDDE <- scale(DatosDDE, center = T, scale = T)
+```
