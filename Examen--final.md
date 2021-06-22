@@ -20,9 +20,12 @@ DatosDDE <- as.data.frame(DatosDDE)
 ```
 
 \#NORMALIDAD MULTIVARIANTE H0: Normalidad multivariante  
-H1: No normalidad multivariante Confianza= 95% Alfa= 5%= 0,05 P value es
-mayor (&gt;) a alfa: No se rechaza la hipotesis nula H0 (Normalidad) P
-value es menor (&lt;) a alfa: Se rechaza la hipotesis nula H0 (No
+H1: No normalidad multivariante  
+Confianza= 95%  
+Alfa= 5%= 0,05  
+P value es mayor (&gt;) a alfa: No se rechaza la hipotesis nula H0
+(Normalidad)  
+P value es menor (&lt;) a alfa: Se rechaza la hipotesis nula H0 (No
 normalidad)
 
 ``` r
