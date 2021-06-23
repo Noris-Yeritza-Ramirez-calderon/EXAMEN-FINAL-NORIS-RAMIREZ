@@ -196,8 +196,8 @@ P value es menor (&lt;) a alfa: Se rechaza la hipotesis nula H0, estamos
 en esta situacion por lo tanto, si es aplicable el Analisis Factorial
 Exploratorio (AFE).
 
-\#INDICADORES DE APLICABILIDAD DEL AFE (BONDAD DEL AJUSTE) \#\#
-CONTRASTE DE ESFERICIDAD DE BARTLETT  
+\#INDICADORES DE APLICABILIDAD DEL AFE (BONDAD DEL AJUSTE)  
+\#\# CONTRASTE DE ESFERICIDAD DE BARTLETT  
 H0: En las correlaciones teoricas entre cada par de variable es nulo  
 H1: Las correlaciones teoricas entre cada par de variables no es nulo
 
@@ -226,3 +226,23 @@ cortest.bartlett(r, n= 30)
 Como el P value es menor a alfa, se rechaza la hipotesis nula H0, por lo
 tanto, las correlaciones teoricas entre cada par de variables es nulo,
 es decir, si es aplicable el analisis factorial exploratorio (AFE)
+
+\#MEDIDA DE ADECUACION MUESTRAL DE KAISER, MEYER Y OKLIN (KMO)  
+Estudia variables, si son o no aceptadas en el modelo para hacer AFE.
+(Que variables elimino o mantengo)  
+Se mantiene una variable en el modelo, si el KMO es igual o mayor a
+0,7.  
+Se elimina una variable del modelo, si el KMO es menor a 0,7.
+
+``` r
+KMO(r)
+```
+
+    ## Kaiser-Meyer-Olkin factor adequacy
+    ## Call: KMO(r = r)
+    ## Overall MSA =  0.58
+    ## MSA for each item = 
+    ##                      Edad           Años de estudio          Horas de trabajo 
+    ##                      0.51                      0.53                      0.57 
+    ##      Tiempo libre (horas) Horas que hacen ejercicio          Horas en familia 
+    ##                      0.59                      0.67                      0.76
