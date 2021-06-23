@@ -32,6 +32,35 @@ mvn(DatosDDE[2:7])
 ```
 Como el P value es mayor (>) a alfa, no se rechaza la hipotesis nula H0, por lo tanto, existe normalidad multivariante.
 
+#MATRIZ DE CORRELACIONES  
+H0: La correlacion entre las variables es = 0 (No hay correlacion)  
+H1: La correlacion es diferente a 0 (Si hay correlacion)  
+
+Cuando no se rechaza la hipotesis nula H0, entonces no se aplica el Analisis Factorial Exprovatorio (AFE).  
+```{r}
+library(psych)
+corr.test(DatosDDE[,2:7])
+Correlaciones <- corr.test(DatosDDE[,2:7]) #Se crea la matriz de correlaciones
+Correlaciones$r #Esta es la matriz de correlaciones
+r <- as.matrix(Correlaciones$r)
+```
+Af: 0,05  
+P value es mayor (>) a alfa: No se rechaza la hipotesis nula H0   
+P value es menor (<) a alfa: Se rechaza la hipotesis nula H0, estamos en esta situacion por lo tanto, si es aplicable el Analisis Factorial Exploratorio (AFE).  
+
+#INDICADORES DE APLICABILIDAD DEL AFE (BONDAD DEL AJUSTE)
+## CONTRASTE DE ESFERICIDAD DE BARTLETT  
+H0: En las correlaciones teoricas entre cada par de variable es nulo  
+H1: Las correlaciones teoricas entre cada par de variables no es nulo  
+
+P value es mayor (>) a alfa: No se aplica el AFE (no se rechaza H0)  
+P value es menor (<) a alfa: Si Se aplica el AFE (no se rechaza H1)  
+```{r}
+dim(DatosDDE) #Tamaño de muestra= 30 personas
+cortest.bartlett(r, n= 30)
+```
+Como el P value es menor a alfa, se rechaza la hipotesis nula H0, por lo tanto, las correlaciones teoricas entre cada par de variables es nulo, es decir, si es aplicable el analisis factorial exploratorio (AFE)  
+
 
 
 

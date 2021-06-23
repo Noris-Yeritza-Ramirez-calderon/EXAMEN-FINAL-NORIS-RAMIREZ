@@ -75,3 +75,154 @@ mvn(DatosDDE[2:7])
 
 Como el P value es mayor (&gt;) a alfa, no se rechaza la hipotesis nula
 H0, por lo tanto, existe normalidad multivariante.
+
+\#MATRIZ DE CORRELACIONES  
+H0: La correlacion entre las variables es = 0 (No hay correlacion)  
+H1: La correlacion es diferente a 0 (Si hay correlacion)
+
+Cuando no se rechaza la hipotesis nula H0, entonces no se aplica el
+Analisis Factorial Exprovatorio (AFE).
+
+``` r
+library(psych)
+corr.test(DatosDDE[,2:7])
+```
+
+    ## Warning in abbreviate(rownames(r), minlength = minlength): abreviatura utilizada
+    ## con caracteres no ASCII
+
+    ## Warning in abbreviate(colnames(r), minlength = minlength): abreviatura utilizada
+    ## con caracteres no ASCII
+
+    ## Warning in abbreviate(dimnames(ans)[[2L]], minlength = abbr.colnames):
+    ## abreviatura utilizada con caracteres no ASCII
+
+    ## Call:corr.test(x = DatosDDE[, 2:7])
+    ## Correlation matrix 
+    ##                            Edad Años de estudio Horas de trabajo
+    ## Edad                       1.00            0.72            -0.11
+    ## Años de estudio            0.72            1.00             0.12
+    ## Horas de trabajo          -0.11            0.12             1.00
+    ## Tiempo libre (horas)       0.46            0.11            -0.72
+    ## Horas que hacen ejercicio  0.12           -0.07            -0.75
+    ## Horas en familia           0.35            0.41            -0.24
+    ##                           Tiempo libre (horas) Horas que hacen ejercicio
+    ## Edad                                      0.46                      0.12
+    ## Años de estudio                           0.11                     -0.07
+    ## Horas de trabajo                         -0.72                     -0.75
+    ## Tiempo libre (horas)                      1.00                      0.51
+    ## Horas que hacen ejercicio                 0.51                      1.00
+    ## Horas en familia                          0.27                      0.15
+    ##                           Horas en familia
+    ## Edad                                  0.35
+    ## Años de estudio                       0.41
+    ## Horas de trabajo                     -0.24
+    ## Tiempo libre (horas)                  0.27
+    ## Horas que hacen ejercicio             0.15
+    ## Horas en familia                      1.00
+    ## Sample Size 
+    ## [1] 30
+    ## Probability values (Entries above the diagonal are adjusted for multiple tests.) 
+    ##                           Edad Años de estudio Horas de trabajo
+    ## Edad                      0.00            0.00              1.0
+    ## Años de estudio           0.00            0.00              1.0
+    ## Horas de trabajo          0.56            0.53              0.0
+    ## Tiempo libre (horas)      0.01            0.57              0.0
+    ## Horas que hacen ejercicio 0.52            0.71              0.0
+    ## Horas en familia          0.06            0.02              0.2
+    ##                           Tiempo libre (horas) Horas que hacen ejercicio
+    ## Edad                                      0.12                      1.00
+    ## Años de estudio                           1.00                      1.00
+    ## Horas de trabajo                          0.00                      0.00
+    ## Tiempo libre (horas)                      0.00                      0.04
+    ## Horas que hacen ejercicio                 0.00                      0.00
+    ## Horas en familia                          0.15                      0.42
+    ##                           Horas en familia
+    ## Edad                                  0.52
+    ## Años de estudio                       0.25
+    ## Horas de trabajo                      1.00
+    ## Tiempo libre (horas)                  1.00
+    ## Horas que hacen ejercicio             1.00
+    ## Horas en familia                      0.00
+    ## 
+    ##  To see confidence intervals of the correlations, print with the short=FALSE option
+
+``` r
+Correlaciones <- corr.test(DatosDDE[,2:7]) #Se crea la matriz de correlaciones
+```
+
+    ## Warning in abbreviate(rownames(r), minlength = minlength): abreviatura utilizada
+    ## con caracteres no ASCII
+
+    ## Warning in abbreviate(colnames(r), minlength = minlength): abreviatura utilizada
+    ## con caracteres no ASCII
+
+    ## Warning in abbreviate(dimnames(ans)[[2L]], minlength = abbr.colnames):
+    ## abreviatura utilizada con caracteres no ASCII
+
+``` r
+Correlaciones$r #Esta es la matriz de correlaciones
+```
+
+    ##                                 Edad Años de estudio Horas de trabajo
+    ## Edad                       1.0000000      0.71580233       -0.1104043
+    ## Años de estudio            0.7158023      1.00000000        0.1183227
+    ## Horas de trabajo          -0.1104043      0.11832272        1.0000000
+    ## Tiempo libre (horas)       0.4601134      0.10665739       -0.7241900
+    ## Horas que hacen ejercicio  0.1212917     -0.07008322       -0.7451909
+    ## Horas en familia           0.3506514      0.40970763       -0.2385162
+    ##                           Tiempo libre (horas) Horas que hacen ejercicio
+    ## Edad                                 0.4601134                0.12129175
+    ## Años de estudio                      0.1066574               -0.07008322
+    ## Horas de trabajo                    -0.7241900               -0.74519088
+    ## Tiempo libre (horas)                 1.0000000                0.51381268
+    ## Horas que hacen ejercicio            0.5138127                1.00000000
+    ## Horas en familia                     0.2722155                0.15192533
+    ##                           Horas en familia
+    ## Edad                             0.3506514
+    ## Años de estudio                  0.4097076
+    ## Horas de trabajo                -0.2385162
+    ## Tiempo libre (horas)             0.2722155
+    ## Horas que hacen ejercicio        0.1519253
+    ## Horas en familia                 1.0000000
+
+``` r
+r <- as.matrix(Correlaciones$r)
+```
+
+Af: 0,05  
+P value es mayor (&gt;) a alfa: No se rechaza la hipotesis nula H0  
+P value es menor (&lt;) a alfa: Se rechaza la hipotesis nula H0, estamos
+en esta situacion por lo tanto, si es aplicable el Analisis Factorial
+Exploratorio (AFE).
+
+\#INDICADORES DE APLICABILIDAD DEL AFE (BONDAD DEL AJUSTE) \#\#
+CONTRASTE DE ESFERICIDAD DE BARTLETT  
+H0: En las correlaciones teoricas entre cada par de variable es nulo  
+H1: Las correlaciones teoricas entre cada par de variables no es nulo
+
+P value es mayor (&gt;) a alfa: No se aplica el AFE (no se rechaza H0)  
+P value es menor (&lt;) a alfa: Si Se aplica el AFE (no se rechaza H1)
+
+``` r
+dim(DatosDDE) #Tamaño de muestra= 30 personas
+```
+
+    ## [1] 30  7
+
+``` r
+cortest.bartlett(r, n= 30)
+```
+
+    ## $chisq
+    ## [1] 81.14841
+    ## 
+    ## $p.value
+    ## [1] 4.304182e-11
+    ## 
+    ## $df
+    ## [1] 15
+
+Como el P value es menor a alfa, se rechaza la hipotesis nula H0, por lo
+tanto, las correlaciones teoricas entre cada par de variables es nulo,
+es decir, si es aplicable el analisis factorial exploratorio (AFE)
