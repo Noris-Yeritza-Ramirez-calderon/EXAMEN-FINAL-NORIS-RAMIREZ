@@ -5,13 +5,13 @@ output: github_document
 ---
 
 
-#IMPORTAR LA BASE DE DATOS 
+# IMPORTAR LA BASE DE DATOS   
 ```{r}
 library(readxl)
 datosd <- read_excel("C:/Users/Lenovo/Desktop/PARCIAL DE DISEÑO/datosfinales.xlsx")
 ```
 
-#TIPIFICACION O ESTANDARIZACION DE VARIABLES 
+# TIPIFICACION O ESTANDARIZACION DE VARIABLES   
 La tipificacion permite que todas las variables metricas gocen de una misma unidad de medida estadistica.
 ```{r}
 DatosDDE <- datosd #Crear una nueva base de datos o data frame
@@ -19,7 +19,7 @@ DatosDDE <- scale(DatosDDE, center = T, scale = T)
 DatosDDE <- as.data.frame(DatosDDE)
 ```
 
-#NORMALIDAD MULTIVARIANTE
+# NORMALIDAD MULTIVARIANTE  
 H0: Normalidad multivariante  
 H1: No normalidad multivariante  
 Confianza= 95%  
@@ -32,7 +32,7 @@ mvn(DatosDDE[2:7])
 ```
 Como el P value es mayor (>) a alfa, no se rechaza la hipotesis nula H0, por lo tanto, existe normalidad multivariante.
 
-#MATRIZ DE CORRELACIONES  
+# MATRIZ DE CORRELACIONES    
 H0: La correlacion entre las variables es = 0 (No hay correlacion)  
 H1: La correlacion es diferente a 0 (Si hay correlacion)  
 
@@ -48,8 +48,8 @@ Af: 0,05
 P value es mayor (>) a alfa: No se rechaza la hipotesis nula H0   
 P value es menor (<) a alfa: Se rechaza la hipotesis nula H0, estamos en esta situacion por lo tanto, si es aplicable el Analisis Factorial Exploratorio (AFE).  
 
-#INDICADORES DE APLICABILIDAD DEL AFE (BONDAD DEL AJUSTE)  
-## CONTRASTE DE ESFERICIDAD DE BARTLETT    
+# INDICADORES DE APLICABILIDAD DEL AFE (BONDAD DEL AJUSTE)    
+## CONTRASTE DE ESFERICIDAD DE BARTLETT      
 H0: En las correlaciones teoricas entre cada par de variable es nulo  
 H1: Las correlaciones teoricas entre cada par de variables no es nulo  
 
@@ -61,13 +61,62 @@ cortest.bartlett(r, n= 30)
 ```
 Como el P value es menor a alfa, se rechaza la hipotesis nula H0, por lo tanto, las correlaciones teoricas entre cada par de variables es nulo, es decir, si es aplicable el analisis factorial exploratorio (AFE)  
 
-#MEDIDA DE ADECUACION MUESTRAL DE KAISER, MEYER Y OKLIN (KMO)  
+# MEDIDA DE ADECUACION MUESTRAL DE KAISER, MEYER Y OKLIN (KMO)    
 Estudia variables, si son o no aceptadas en el modelo para hacer AFE. (Que variables elimino o mantengo)  
 Se mantiene una variable en el modelo, si el KMO es igual o mayor a 0,7.  
 Se elimina una variable del modelo, si el KMO es menor a 0,7.  
 ```{r}
 KMO(r)
 ```
+El KMO= 0,58 el modelo es miserable, si es adecuado para realizar analisis factorial.  
+KMO edad= 0,51 (Miserable)  
+KMO años de estudio= 0,53 (Miserable)  
+KMO horas de trabajo= 0,57 (Miserable)  
+KMO tiempo libre= 0,59 (Miserable)  
+KMO horas que hacen ejercicio= 0,67 (Middling)  
+KMO horas en familia= 0,76 (Middling)  
+
+## DETERMINACION DEL NUMERO DE FACTORES A EXTRAER        
+## Metodo de las componentes principales iteradas (Ejes principales)  
+Este metodo de las Ejes principales es de naturaleza no parametrica, es decir, que se ocupa, cuando no hay normalidad multivariante; pero tambien es valido para modelos parametricos (normalidad multivariante).  
+```{r}
+fa.parallel(r, "pa", n.obs=30, ylabel="Eigenvalues")
+```
+Con el metodo de los ejes principales se extraerian solo 2 factores.  
+
+## Metodo de las componentes principales    
+Metodo parametrico, sirve solo para modelos con normalidad multivariante.  
+```{r}
+fa.parallel(r, "pc", n.obs=30, ylabel= "Eigenvalues")
+```
+Con el metodo de las componentes principales se recomienda extraer 2 factores.  
+
+## Metodo de la maxima verosimilidad  
+Metodo parametrico, sirve solo para modelos con normalidad multivariante.  
+```{r}
+fa.parallel(r, "ml", n.obs=30, ylabel= "Eigenvalues")
+```
+Con el metodo de la maxima verosimilidad se recomienda extraer 2 factores.  
+
+## Metodo paralelo con iteraciones  
+Metodo parametrico, sirve solo para nodelos con normalidad multivariante.  
+```{r}
+library(paran)
+paran(r, iterations= 1000, graph= T)
+```
+Con el metodo Horn´s (metodo paralelo con iteraciones) se recomienda extraer 2 factores.  
+
+Resumen:  
+Ejes principales= 2 factores  
+Componentes principales= 2 factores  
+Maxima verosimilitud= 2 factores  
+Metodo paralelo con iteraciones (Horn´s )= 2 factores  
+
+Conclucion:  
+Vamos a extraer 2 factores  
+
+
+
 
 
 

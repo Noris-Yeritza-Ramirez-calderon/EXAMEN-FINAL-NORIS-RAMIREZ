@@ -2,16 +2,17 @@ ANALISIS FACTORIAL
 ================
 NORIS YERITZA RAMIREZ CALDERON 1950198
 
-\#IMPORTAR LA BASE DE DATOS
+# IMPORTAR LA BASE DE DATOS
 
 ``` r
 library(readxl)
 datosd <- read_excel("C:/Users/Lenovo/Desktop/PARCIAL DE DISEÑO/datosfinales.xlsx")
 ```
 
-\#TIPIFICACION O ESTANDARIZACION DE VARIABLES La tipificacion permite
-que todas las variables metricas gocen de una misma unidad de medida
-estadistica.
+# TIPIFICACION O ESTANDARIZACION DE VARIABLES
+
+La tipificacion permite que todas las variables metricas gocen de una
+misma unidad de medida estadistica.
 
 ``` r
 DatosDDE <- datosd #Crear una nueva base de datos o data frame
@@ -19,7 +20,9 @@ DatosDDE <- scale(DatosDDE, center = T, scale = T)
 DatosDDE <- as.data.frame(DatosDDE)
 ```
 
-\#NORMALIDAD MULTIVARIANTE H0: Normalidad multivariante  
+# NORMALIDAD MULTIVARIANTE
+
+H0: Normalidad multivariante  
 H1: No normalidad multivariante  
 Confianza= 95%  
 Alfa= 5%= 0,05  
@@ -76,7 +79,8 @@ mvn(DatosDDE[2:7])
 Como el P value es mayor (&gt;) a alfa, no se rechaza la hipotesis nula
 H0, por lo tanto, existe normalidad multivariante.
 
-\#MATRIZ DE CORRELACIONES  
+# MATRIZ DE CORRELACIONES
+
 H0: La correlacion entre las variables es = 0 (No hay correlacion)  
 H1: La correlacion es diferente a 0 (Si hay correlacion)
 
@@ -196,8 +200,10 @@ P value es menor (&lt;) a alfa: Se rechaza la hipotesis nula H0, estamos
 en esta situacion por lo tanto, si es aplicable el Analisis Factorial
 Exploratorio (AFE).
 
-\#INDICADORES DE APLICABILIDAD DEL AFE (BONDAD DEL AJUSTE)  
-\#\# CONTRASTE DE ESFERICIDAD DE BARTLETT  
+# INDICADORES DE APLICABILIDAD DEL AFE (BONDAD DEL AJUSTE)
+
+## CONTRASTE DE ESFERICIDAD DE BARTLETT
+
 H0: En las correlaciones teoricas entre cada par de variable es nulo  
 H1: Las correlaciones teoricas entre cada par de variables no es nulo
 
@@ -227,7 +233,8 @@ Como el P value es menor a alfa, se rechaza la hipotesis nula H0, por lo
 tanto, las correlaciones teoricas entre cada par de variables es nulo,
 es decir, si es aplicable el analisis factorial exploratorio (AFE)
 
-\#MEDIDA DE ADECUACION MUESTRAL DE KAISER, MEYER Y OKLIN (KMO)  
+# MEDIDA DE ADECUACION MUESTRAL DE KAISER, MEYER Y OKLIN (KMO)
+
 Estudia variables, si son o no aceptadas en el modelo para hacer AFE.
 (Que variables elimino o mantengo)  
 Se mantiene una variable en el modelo, si el KMO es igual o mayor a
@@ -246,3 +253,260 @@ KMO(r)
     ##                      0.51                      0.53                      0.57 
     ##      Tiempo libre (horas) Horas que hacen ejercicio          Horas en familia 
     ##                      0.59                      0.67                      0.76
+
+El KMO= 0,58 el modelo es miserable, si es adecuado para realizar
+analisis factorial.  
+KMO edad= 0,51 (Miserable)  
+KMO años de estudio= 0,53 (Miserable)  
+KMO horas de trabajo= 0,57 (Miserable)  
+KMO tiempo libre= 0,59 (Miserable)  
+KMO horas que hacen ejercicio= 0,67 (Middling)  
+KMO horas en familia= 0,76 (Middling)
+
+## DETERMINACION DEL NUMERO DE FACTORES A EXTRAER
+
+## Metodo de las componentes principales iteradas (Ejes principales)
+
+Este metodo de las Ejes principales es de naturaleza no parametrica, es
+decir, que se ocupa, cuando no hay normalidad multivariante; pero
+tambien es valido para modelos parametricos (normalidad multivariante).
+
+``` r
+fa.parallel(r, "pa", n.obs=30, ylabel="Eigenvalues")
+```
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
+    ## ultra-Heywood case was detected. Examine the results carefully
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
+    ## ultra-Heywood case was detected. Examine the results carefully
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
+    ## ultra-Heywood case was detected. Examine the results carefully
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
+    ## ultra-Heywood case was detected. Examine the results carefully
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
+    ## ultra-Heywood case was detected. Examine the results carefully
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
+    ## ultra-Heywood case was detected. Examine the results carefully
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
+    ## ultra-Heywood case was detected. Examine the results carefully
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
+    ## ultra-Heywood case was detected. Examine the results carefully
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
+    ## ultra-Heywood case was detected. Examine the results carefully
+
+![](Examen--final_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+    ## Parallel analysis suggests that the number of factors =  2  and the number of components =  2
+
+Con el metodo de los ejes principales se extraerian solo 2 factores.
+
+## Metodo de las componentes principales
+
+Metodo parametrico, sirve solo para modelos con normalidad
+multivariante.
+
+``` r
+fa.parallel(r, "pc", n.obs=30, ylabel= "Eigenvalues")
+```
+
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
+    ## ultra-Heywood case was detected. Examine the results carefully
+
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## An ultra-Heywood case was detected. Examine the results carefully
+
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## An ultra-Heywood case was detected. Examine the results carefully
+
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## An ultra-Heywood case was detected. Examine the results carefully
+
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## An ultra-Heywood case was detected. Examine the results carefully
+
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## An ultra-Heywood case was detected. Examine the results carefully
+
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## An ultra-Heywood case was detected. Examine the results carefully
+
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+
+![](Examen--final_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+    ## Parallel analysis suggests that the number of factors =  2  and the number of components =  2
+
+Con el metodo de las componentes principales se recomienda extraer 2
+factores.
+
+## Metodo de la maxima verosimilidad
+
+Metodo parametrico, sirve solo para modelos con normalidad
+multivariante.
+
+``` r
+fa.parallel(r, "ml", n.obs=30, ylabel= "Eigenvalues")
+```
+
+![](Examen--final_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+
+    ## Parallel analysis suggests that the number of factors =  2  and the number of components =  2
+
+Con el metodo de la maxima verosimilidad se recomienda extraer 2
+factores.
+
+## Metodo paralelo con iteraciones
+
+Metodo parametrico, sirve solo para nodelos con normalidad
+multivariante.
+
+``` r
+library(paran)
+```
+
+    ## Loading required package: MASS
+
+``` r
+paran(r, iterations= 1000, graph= T)
+```
+
+    ## 
+    ## Using eigendecomposition of correlation matrix.
+    ## Computing: 10%  20%  30%  40%  50%  60%  70%  80%  90%  100%
+    ## 
+    ## 
+    ## Results of Horn's Parallel Analysis for component retention
+    ## 1000 iterations, using the mean estimate
+    ## 
+    ## -------------------------------------------------- 
+    ## Component   Adjusted    Unadjusted    Estimated 
+    ##             Eigenvalue  Eigenvalue    Bias 
+    ## -------------------------------------------------- 
+    ## 1           1.436823    3.199016      1.762192
+    ## 2           1.311848    2.010276      0.698427
+    ## -------------------------------------------------- 
+    ## 
+    ## Adjusted eigenvalues > 1 indicate dimensions to retain.
+    ## (2 components retained)
+
+![](Examen--final_files/figure-gfm/unnamed-chunk-10-1.png)<!-- --> Con
+el metodo Horn´s (metodo paralelo con iteraciones) se recomienda extraer
+2 factores.
+
+Resumen:  
+Ejes principales= 2 factores  
+Componentes principales= 2 factores  
+Maxima verosimilitud= 2 factores  
+Metodo paralelo con iteraciones (Horn´s )= 2 factores
+
+Conclucion:  
+Vamos a extraer 2 factores
