@@ -133,7 +133,7 @@ h2: Comunalidad (Varinza comun explicada).
 Mientras mas alta sea h2 es mejor el modelo. 0;1  
 
 u2: Especificidad (Varianza residual o varianza no aplicada).  
-- Ead no es explicado en un 62%.  
+- Edad no es explicado en un 62%.  
 - Años pierde 86%.  
 - Horas de trabajo pierde 39%.  
 - Tiempo libre (horas) pierde 28%.  
@@ -143,11 +143,18 @@ u2: Especificidad (Varianza residual o varianza no aplicada).
 Mientras mas pequeño sea u2 es  mejor el modelo. 0;1.  
 
 h2 + u2 = 1  
-Comunalidad + Especificidad= 1  
+Comunalidad + Especificidad= 1.    
 
-SS loadings= 2.65 (Es la varinza explicada en valores absolutos, o la suma de los dos h2)  
+SS loadings= 2.65 (Es la varinza explicada en valores absolutos, o la suma de los dos h2).    
 
-Proportion Var= 0.44
+Proportion Var= 0.44 (El % que la varianza explicada representa el total).  
+
+Lo "ideal" es que proportion var sea lo mas cercano a 1.  
+
+RMSR= 0.26 (Raiz cuadrada media de los residuos)  
+Teoricamente un modelo presenta una solucion adecuada cuando el RMSR es menor o igual a 0,26.  
+
+# METODO DE LOS EJES PRINCIPALES O COMPONENTES PRINCIPALES ITERADAS (CPI)  
 
 
 
