@@ -155,14 +155,69 @@ RMSR= 0.26 (Raiz cuadrada media de los residuos)
 Teoricamente un modelo presenta una solucion adecuada cuando el RMSR es menor o igual a 0,26.  
 
 # METODO DE LOS EJES PRINCIPALES O COMPONENTES PRINCIPALES ITERADAS (CPI)  
+```{r}
+cpi <- fa(r, nfactors=1, fm="pa", rotate="nome", n.obs=30)
+cpi
+```
+Proportion Var= 36%  
+RMSR= 0,23  
 
+## METODO DE MAXIMA VEROSIMILITUD (MVE)  
+```{r}
+mve <- fa(r, nfactors=1, fm="pa", rotate="nome", n.obs=30) 
+mve
+```
+Proportion Var= 36%  
+RMSR= 0,23  
 
+### RESUMEN
+ACP= var= 44%   RMSR= 0,26    
+CPI= var= 36%   RMSR= 0,23    
+MVE= var= 36%   RMSR= 0,23    
 
+¿Con cual nos quedamos?    
+Aquel modelo que tenga la proportion var mas alta y el RMSR mas pequeño.  
 
+# OBTENCION DE LAS PUNTUACIONES FACTORIALES  
+## METODO DE ANALISIS DE LAS COMPONENTES PRINCIPALES ITERADAS (ACP)  
+```{r}
+acp1 <- principal(DatosDDE[2:7], nfactors=1, rotate="nome", scores= T)
+acp1$scores
+puntuacionesfactoriales_acp <- acp1$scores
+puntuacionesfactoriales_acp <- as.data.frame(puntuacionesfactoriales_acp)
+```
+## METODO DE LAS COMPONENTES PRINCIPALES ITERADAS (CPI)  
+```{r}
+cpi1 <- fa(DatosDDE[,7:2], nfactors = 1, fm="pa", rotate="nome", n.obs=30, scores="regression")
+cpi1$scores
+puntfac_cpi <- cpi1$scores
+puntfac_cpi <- as.data.frame(puntfac_cpi)
+```
+## METODO DE LA MAXIMA VEROSIMILITUD  
+```{r}
+mve1 <- fa(DatosDDE[,2:7], nfactors = 1, fm="lm", rotate="nome", n.obs=30, scores = "regression")
+mve1$scores
+puntfac_mve <- mve1$scores
+puntfac_mve <- as.data.frame(puntfac_mve)
+```
+# OBTENCION DE LOS FACTORES EXTRAIDOS  
+Aqui se trabaja con el metodo que el investigador decicio (ACP, CPI, MVE).  
+```{r}
+factor.scores(r, mve, method = "Thurstone")
+```
+z1=   
+- -0,037 edad  
+- +0,17 años de estudio  
+- -0,30 horas de trabajo 
+- +0,54 tiempo libre (horas)  
+- +0,15 horas que hacen ejercicio  
+- +0,064 horas en familia  
 
-
-
-
+# AGREGAR FACTOR EXTRAIDO (PUNTUACIONES FACTORIALES) EN EL DATA FRAME ORIGINAL  
+```{r}
+datos_puntuaciones<- c(DatosDDE, puntuacionesfactoriales_acp)
+datos_puntuaciones <- as.data.frame((datos_puntuaciones))
+```
 
 
 
