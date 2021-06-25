@@ -282,62 +282,6 @@ fa.parallel(r, "pa", n.obs=30, ylabel="Eigenvalues")
     ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
     ## ultra-Heywood case was detected. Examine the results carefully
 
-    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
-    ## The estimated weights for the factor scores are probably incorrect. Try a
-    ## different factor score estimation method.
-
-    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
-    ## ultra-Heywood case was detected. Examine the results carefully
-
-    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
-    ## The estimated weights for the factor scores are probably incorrect. Try a
-    ## different factor score estimation method.
-
-    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
-    ## ultra-Heywood case was detected. Examine the results carefully
-
-    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
-    ## The estimated weights for the factor scores are probably incorrect. Try a
-    ## different factor score estimation method.
-
-    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
-    ## ultra-Heywood case was detected. Examine the results carefully
-
-    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
-    ## The estimated weights for the factor scores are probably incorrect. Try a
-    ## different factor score estimation method.
-
-    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
-    ## ultra-Heywood case was detected. Examine the results carefully
-
-    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
-    ## The estimated weights for the factor scores are probably incorrect. Try a
-    ## different factor score estimation method.
-
-    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
-    ## ultra-Heywood case was detected. Examine the results carefully
-
-    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
-    ## The estimated weights for the factor scores are probably incorrect. Try a
-    ## different factor score estimation method.
-
-    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
-    ## ultra-Heywood case was detected. Examine the results carefully
-
-    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
-    ## The estimated weights for the factor scores are probably incorrect. Try a
-    ## different factor score estimation method.
-
-    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
-    ## ultra-Heywood case was detected. Examine the results carefully
-
-    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
-    ## The estimated weights for the factor scores are probably incorrect. Try a
-    ## different factor score estimation method.
-
-    ## Warning in fac(r = r, nfactors = nfactors, n.obs = n.obs, rotate = rotate, : An
-    ## ultra-Heywood case was detected. Examine the results carefully
-
 ![](Examen--final_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
     ## Parallel analysis suggests that the number of factors =  2  and the number of components =  2
@@ -355,7 +299,6 @@ fa.parallel(r, "pc", n.obs=30, ylabel= "Eigenvalues")
 
     ## factor method not specified correctly, minimum residual (unweighted least squares  used
     ## factor method not specified correctly, minimum residual (unweighted least squares  used
-    ## factor method not specified correctly, minimum residual (unweighted least squares  used
 
     ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
     ## The estimated weights for the factor scores are probably incorrect. Try a
@@ -385,6 +328,18 @@ fa.parallel(r, "pc", n.obs=30, ylabel= "Eigenvalues")
 
     ## factor method not specified correctly, minimum residual (unweighted least squares  used
     ## factor method not specified correctly, minimum residual (unweighted least squares  used
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## An ultra-Heywood case was detected. Examine the results carefully
+
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
     ## factor method not specified correctly, minimum residual (unweighted least squares  used
 
     ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
@@ -400,32 +355,7 @@ fa.parallel(r, "pc", n.obs=30, ylabel= "Eigenvalues")
     ## The estimated weights for the factor scores are probably incorrect. Try a
     ## different factor score estimation method.
 
-    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
-    ## An ultra-Heywood case was detected. Examine the results carefully
-
     ## factor method not specified correctly, minimum residual (unweighted least squares  used
-
-    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
-    ## The estimated weights for the factor scores are probably incorrect. Try a
-    ## different factor score estimation method.
-
-    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
-    ## An ultra-Heywood case was detected. Examine the results carefully
-
-    ## factor method not specified correctly, minimum residual (unweighted least squares  used
-
-    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
-    ## The estimated weights for the factor scores are probably incorrect. Try a
-    ## different factor score estimation method.
-
-    ## factor method not specified correctly, minimum residual (unweighted least squares  used
-    ## factor method not specified correctly, minimum residual (unweighted least squares  used
-    ## factor method not specified correctly, minimum residual (unweighted least squares  used
-
-    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
-    ## The estimated weights for the factor scores are probably incorrect. Try a
-    ## different factor score estimation method.
-
     ## factor method not specified correctly, minimum residual (unweighted least squares  used
     ## factor method not specified correctly, minimum residual (unweighted least squares  used
     ## factor method not specified correctly, minimum residual (unweighted least squares  used
@@ -440,6 +370,14 @@ fa.parallel(r, "pc", n.obs=30, ylabel= "Eigenvalues")
     ## factor method not specified correctly, minimum residual (unweighted least squares  used
     ## factor method not specified correctly, minimum residual (unweighted least squares  used
     ## factor method not specified correctly, minimum residual (unweighted least squares  used
+    ## factor method not specified correctly, minimum residual (unweighted least squares  used
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## The estimated weights for the factor scores are probably incorrect. Try a
+    ## different factor score estimation method.
+
+    ## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
+    ## An ultra-Heywood case was detected. Examine the results carefully
 
 ![](Examen--final_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
@@ -491,8 +429,8 @@ paran(r, iterations= 1000, graph= T)
     ## Component   Adjusted    Unadjusted    Estimated 
     ##             Eigenvalue  Eigenvalue    Bias 
     ## -------------------------------------------------- 
-    ## 1           1.436823    3.199016      1.762192
-    ## 2           1.311848    2.010276      0.698427
+    ## 1           1.431517    3.199016      1.767498
+    ## 2           1.318628    2.010276      0.691647
     ## -------------------------------------------------- 
     ## 
     ## Adjusted eigenvalues > 1 indicate dimensions to retain.
@@ -510,3 +448,64 @@ Metodo paralelo con iteraciones (Horn´s )= 2 factores
 
 Conclucion:  
 Vamos a extraer 2 factores
+
+# METODOS DE EXTRACCION DE FACTORES
+
+## METODO DE ANALISIS DE LOS COMPONENTES PRINCIPALES (ACP)
+
+``` r
+acp <- principal(r, infactors=1, rotate= "none")
+acp
+```
+
+    ## Principal Components Analysis
+    ## Call: principal(r = r, rotate = "none", infactors = 1)
+    ## Standardized loadings (pattern matrix) based upon correlation matrix
+    ##                             PC1   h2   u2 com
+    ## Edad                       0.62 0.38 0.62   1
+    ## Años de estudio            0.37 0.14 0.86   1
+    ## Horas de trabajo          -0.78 0.61 0.39   1
+    ## Tiempo libre (horas)       0.85 0.72 0.28   1
+    ## Horas que hacen ejercicio  0.70 0.49 0.51   1
+    ## Horas en familia           0.54 0.30 0.70   1
+    ## 
+    ##                 PC1
+    ## SS loadings    2.65
+    ## Proportion Var 0.44
+    ## 
+    ## Mean item complexity =  1
+    ## Test of the hypothesis that 1 component is sufficient.
+    ## 
+    ## The root mean square of the residuals (RMSR) is  0.26 
+    ## 
+    ## Fit based upon off diagonal values = 0.6
+
+PC1: Cargas factoriales de cada variable.  
+h2: Comunalidad (Varinza comun explicada).  
+- Edad es explicada 38% por el factor extraido.  
+- Años de estudio explicada en un 14% por el factor extraido.  
+- Horas de trabajo explicada en un 61% por el factor extraido.  
+- Tiempo libre (horas) explicada en un 72% por el factor extraido.  
+- Horas que hacen ejercicio explicado en un 49% por el factor
+extraido.  
+- Horas en familia explicado en un 30% por un factor extraido.
+
+Mientras mas alta sea h2 es mejor el modelo. 0;1
+
+u2: Especificidad (Varianza residual o varianza no aplicada).  
+- Ead no es explicado en un 62%.  
+- Años pierde 86%.  
+- Horas de trabajo pierde 39%.  
+- Tiempo libre (horas) pierde 28%.  
+- Horas que hacen ejercicio pierde un 51%.  
+- Horas en familia pierde 70%.
+
+Mientras mas pequeño sea u2 es mejor el modelo. 0;1.
+
+h2 + u2 = 1  
+Comunalidad + Especificidad= 1
+
+SS loadings= 2.65 (Es la varinza explicada en valores absolutos, o la
+suma de los dos h2)
+
+Proportion Var= 0.44

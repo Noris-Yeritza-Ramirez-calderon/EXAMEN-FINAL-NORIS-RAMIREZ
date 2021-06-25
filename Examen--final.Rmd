@@ -115,6 +115,41 @@ Metodo paralelo con iteraciones (Horn´s )= 2 factores
 Conclucion:  
 Vamos a extraer 2 factores  
 
+# METODOS DE EXTRACCION DE FACTORES  
+## METODO DE ANALISIS DE LOS COMPONENTES PRINCIPALES (ACP)  
+```{r}
+acp <- principal(r, infactors=1, rotate= "none")
+acp
+```
+PC1: Cargas factoriales de cada variable.  
+h2: Comunalidad (Varinza comun explicada).   
+- Edad es explicada 38% por el factor extraido.  
+- Años de estudio explicada en un 14% por el factor extraido.  
+- Horas de trabajo explicada en un 61% por el factor extraido.  
+- Tiempo libre (horas) explicada en un 72% por el factor extraido.  
+- Horas que hacen ejercicio explicado en un 49% por el factor extraido.  
+- Horas en familia explicado en un 30% por un factor extraido.  
+
+Mientras mas alta sea h2 es mejor el modelo. 0;1  
+
+u2: Especificidad (Varianza residual o varianza no aplicada).  
+- Ead no es explicado en un 62%.  
+- Años pierde 86%.  
+- Horas de trabajo pierde 39%.  
+- Tiempo libre (horas) pierde 28%.  
+- Horas que hacen ejercicio pierde un 51%.  
+- Horas en familia pierde 70%.  
+
+Mientras mas pequeño sea u2 es  mejor el modelo. 0;1.  
+
+h2 + u2 = 1  
+Comunalidad + Especificidad= 1  
+
+SS loadings= 2.65 (Es la varinza explicada en valores absolutos, o la suma de los dos h2)  
+
+Proportion Var= 0.44
+
+
 
 
 
