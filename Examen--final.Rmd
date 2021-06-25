@@ -215,7 +215,7 @@ z1=
 
 # AGREGAR FACTOR EXTRAIDO (PUNTUACIONES FACTORIALES) EN EL DATA FRAME ORIGINAL  
 ```{r}
-datos_puntuaciones<- c(DatosDDE, puntuacionesfactoriales_acp)
+datos_puntuaciones<- c(datosd, puntuacionesfactoriales_acp)
 datos_puntuaciones <- as.data.frame((datos_puntuaciones))
 ```
 
